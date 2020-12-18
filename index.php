@@ -77,8 +77,8 @@
                     <div class="button">
                         <button class="btn finish" id="btn-finish">Finish</button>
                     </div>
-                    <div class="alert">
-                        <h3>Please use a larger screen.</h3>
+                    <div class="alert m-4 text-center">
+                        <h2>Please use a larger screen.</h2>
                     </div>
                 </div>
                 <div class="right-col">

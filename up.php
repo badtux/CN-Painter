@@ -8,7 +8,7 @@
 	$childAge = preg_replace('/[\W_]+/m', '-', $childAge);
 	$parentNo = preg_replace('/[^0-9]/', '', $parentNo);
 
-	$fileingName = date("Ymd-G:i:s-T_").$parentNo.'-'.$childName.'-'.$childAge.'.png';   
+	$fileingName = date("Ymd-Gis_").$parentNo.'-'.$childName.'-'.$childAge.'.png';   
 	
 	define('UPLOAD_DIR', 'submissions/');
 	define('SHARE_URL', 'https://laugfs-super.prvw.ceynet.asia/submissions/'.$fileingName);
@@ -23,7 +23,7 @@
 		'status' => (int)$success,
 		'uid' => $fileingName,
 		'share_url' => SHARE_URL,
-		'share_msg' => $childName.' ('.$childAge.') just submited this drawing on Super Painter'
+		'share_msg' => $childName.' just took part in LAUGFS Super Painter contest. Login to take part in the competition and win valuable gift vouchers from Promate. http://bit.ly/LaugfsSuperPainter'
 	]);
 
 	

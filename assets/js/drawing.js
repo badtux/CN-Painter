@@ -311,7 +311,7 @@
 		var outLine = new Image();
 		outLine.src = "assets/images/paint.png";
 		outLine.onload = function(){
-		    ctx.drawImage(outLine,0,0);
+		    ctx.drawImage(outLine,0,0,canvas.width,canvas.height);
 		}
 	}
 
@@ -354,7 +354,6 @@
 				    display: 'popup',
 				    method: 'share',
 				    quote: data.share_msg,
-				    hashtag: '#SuperPainter',
 				    href: data.share_url,
 				  }, function(response){});	
 			});
