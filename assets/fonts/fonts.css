@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Chalkduster";
+  src: url("Chalkduster.eot"); /* IE9 Compat Modes */
+  src: url("Chalkduster.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("Chalkduster.otf") format("opentype"), /* Open Type Font */
+    url("Chalkduster.svg") format("svg"), /* Legacy iOS */
+    url("Chalkduster.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("Chalkduster.woff") format("woff"), /* Modern Browsers */
+    url("Chalkduster.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

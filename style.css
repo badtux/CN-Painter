@@ -1,0 +1,541 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(-155deg, #74af43, #bdd721, #ffff00, #ffff00, #ffff00);
+    background-size: 100% 100%;
+    min-height: 100vh;
+}
+
+.red {
+    background: red;
+}
+
+.red1 {
+    background: #F16161;
+}
+
+.red2 {
+    background: #F69FA0;
+}
+
+.orange {
+    background: orange;
+}
+
+.orange1 {
+    background: #F99F62;
+}
+
+.orange2 {
+    background: #FBB57B;
+}
+
+.blue {
+    background: #09C2DB;
+}
+
+.blue1 {
+    background: #8BD3DC;
+}
+
+.blue2 {
+    background: #B9E3E8;
+}
+
+.indigo {
+    background: #0E38AD;
+}
+
+.indigo1 {
+    background: #546AB2;
+}
+
+.indigo2 {
+    background: #9C96C9;
+}
+
+.green {
+    background: green;
+}
+
+.green1 {
+    background: #97CD7E;
+}
+
+.green2 {
+    background: #C6E2BB;
+}
+
+.black {
+    background: black;
+}
+
+.black1 {
+    background: #545454;
+}
+
+.black2 {
+    background: #B2B2B2;
+}
+
+.yellow {
+    background: yellow;
+}
+
+.yellow1 {
+    background: #F7F754;
+}
+
+.yellow2 {
+    background: #F7F4B1;
+}
+
+.purple {
+    background: #B9509E;
+}
+
+.purple1 {
+    background: #D178B1;
+}
+
+.purple2 {
+    background: #E3ABCE;
+}
+
+
+
+
+
+
+
+
+.SuperPaint {
+    padding-top: 30px;
+
+}
+
+.SuperPaint .main-col {
+    width: calc(100% - 280px);
+    padding: 0 35px;
+}
+
+.SuperPaint .main-col .logo img {
+    display: block;
+    margin: auto;
+    max-width: 70%;
+}
+
+.SuperPaint .main-col .canvasArea {
+    margin-top: 10px;
+}
+
+.SuperPaint .main-col .canvasArea img{
+    width: 100%;
+}
+
+.SuperPaint .main-col .canvasArea canvas{
+    width: 100%;
+    background: #fff;
+    height: 544px;
+    width: 760px;
+}
+
+.SuperPaint .left-col,
+.SuperPaint .right-col {
+    width: 140px;
+}
+
+.SuperPaint .right-col .doll2 img {
+    margin-left: -40px
+}
+
+.SuperPaint .left-col .doll1 img {
+    display: block;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.SuperPaint .left-col p {
+    text-align: center;
+    font-size: 16px;
+    font-family: "Chalkduster";
+    margin-top: 35px;
+    margin-bottom: 5px;
+    color: #a60000;
+}
+
+.SuperPaint .left-col .colors {
+    display: flex;
+    flex-flow: wrap;
+    padding: 10px 12px;
+    background: #fff;
+    box-shadow: -5px 5px 0 #f7761c;
+    border-radius: 8px;
+    justify-content: space-between
+}
+
+.SuperPaint .left-col .palette {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin: 6.5px 5px;
+    box-shadow:
+        inset 0 0 4px 0 rgba(255, 255, 255, .3),
+        inset 0 0 4px 0 rgba(0, 0, 0, .3),
+        inset 0 0 4px 5px rgba(0, 0, 0, .05),
+        2px 2px 4px 0 rgba(0, 0, 0, .15);
+    position: relative;
+    cursor: pointer;
+}
+
+.SuperPaint .left-col .palette span {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 1;
+    transform: scale(0);
+    animation: ani1 .5s ease;
+}
+@keyframes ani1{
+    0%{transform: scale(0);opacity: 1;}
+    100%{transform: scale(1.5);opacity: 0;}
+}
+
+.SuperPaint .right-col .tools {
+    padding: 10px 12px;
+    background: #fff;
+    box-shadow: -5px 5px 0 #f7761c;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.SuperPaint .right-col .tools {
+    text-align: center;
+}
+
+.SuperPaint .right-col .tools .tool {
+    padding-bottom: 10px;
+}
+
+.SuperPaint .right-col .tools p {
+    font-size: 16px;
+    font-family: "Chalkduster";
+    color: #a60000;
+    margin-bottom: 3px;
+}
+
+.SuperPaint .right-col .tools button {
+    border: 0;
+    background: transparent;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.SuperPaint .right-col .tools .tool:last-child {
+    padding-bottom: 0;
+}
+
+.SuperPaint .right-col .tools input[name='amountInput'] {
+    border: 0;
+    text-align: center;
+    font-size: 12px;
+    border: 0;
+}
+
+.button {
+    text-align: center;
+}
+
+.button .btn.finish {
+    font-size: 12px;
+    color: #fff;
+    background: linear-gradient(to top, #ec443c, #ce2a23);
+    border: 3px solid #ce2a23;
+    padding: 5px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-shadow: 1px 1px 1px #000;
+    position: relative;
+}
+.button .btn.finish span{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 5px;
+    background: #fff;
+    opacity: 1;
+    transform: scale(0);
+    animation: ani1 .5s ease;
+}
+
+.modal-header, .modal-body, .modal-footer {
+    background-color: #f1b13b !important; 
+}
+
+.super-secondary{
+    background-color: #1b2541 !important; 
+}
+
+.super-primary {
+    background-color: #3aa94d !important; 
+}
+
+.modal-header, .modal-body, .modal-footer {
+    //background-color: #f1b13b !important; 
+    background-image: url('assets/images/modal_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-facebook {
+    background: #3b5998;
+    border-radius: 3px;
+    color: #fff;
+    padding: 8px 16px;
+}
+.btn-facebook:link, .btn-facebook:visited {
+    color: #fff;
+}
+.btn-facebook:active, .btn-facebook:hover {
+    background: #30477a;
+    color: #fff;
+}
+
+footer {
+    margin-top: -30px;
+}
+footer .container{
+    padding: 0;
+    max-width: 100%;
+}
+
+footer .images {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+footer .images img:nth-child(1) {
+    width: 22%;
+}
+
+footer .images img:nth-child(2) {
+    width: 23%;
+    align-self: center;
+    padding-top: 30px;
+}
+
+footer .images img:nth-child(3) {
+    align-self: center;
+    width: 14%;
+    margin-left: 20px
+}
+
+footer .images img:nth-child(4) {
+    width: 22%;
+}
+.alert{
+    display: none;
+}
+@media (max-width:1200px) {
+    .SuperPaint .main-col {
+        width: calc(100% - 240px);
+        padding: 0 25px;
+    }
+
+    .SuperPaint .left-col,
+    .SuperPaint .right-col {
+        width: 120px;
+    }
+
+    .SuperPaint .right-col .doll2 img {
+        margin-left: -25px;
+        width: 150px;
+    }
+
+    .SuperPaint .left-col .doll1 img {
+        width: 80px;
+        padding-top: 20px;
+    }
+
+    .SuperPaint .left-col p {
+        margin-top: 23px;
+    }
+
+    .SuperPaint .left-col .colors {
+        padding: 8px 5px;
+    }
+
+    .SuperPaint .left-col .palette {
+        width: 26px;
+        height: 26px;
+        margin: 6px 5px;
+    }
+
+    .SuperPaint .right-col .tools {
+        padding: 8px 5px;
+        border-radius: 8px;
+    }
+
+    .SuperPaint .right-col .tools .tool {
+        padding-bottom: 8px;
+    }
+
+    .SuperPaint .right-col .tools button {
+        font-size: 16px;
+        padding: 5px;
+    }
+    
+    .SuperPaint .main-col .canvasArea canvas{
+    height: 458px;
+        width: 640px;
+}
+
+}
+
+@media (max-width:991px) {
+    .SuperPaint .main-col {
+        width: calc(100% - 200px);
+        padding: 0 15px;
+    }
+
+    .SuperPaint .left-col,
+    .SuperPaint .right-col {
+        width: 100px;
+    }
+
+    .SuperPaint .main-col .logo img {
+        padding: 10px;
+    }
+
+    .SuperPaint .right-col .doll2 img {
+        margin-left: -20px;
+        width: 120px;
+    }
+
+    .SuperPaint .left-col .doll1 img {
+        width: 62px;
+        padding-top: 15px;
+    }
+
+    .SuperPaint .left-col p {
+/*        margin-top: 10px;*/
+        font-size: 14px;
+    }
+
+    .SuperPaint .left-col .colors {
+        padding: 5px 4px;
+    }
+
+    .SuperPaint .left-col .palette {
+        width: 20px;
+        height: 20px;
+        margin: 4px 4px;
+    }
+
+    .SuperPaint .right-col .tools {
+        padding: 5px 5px;
+        margin-top: 10px;
+    }
+
+    .SuperPaint .right-col .tools .tool {
+        padding-bottom: 4px;
+    }
+
+    .SuperPaint .right-col .tools button {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .SuperPaint .right-col .tools .tool p {
+        font-size: 14px;
+        margin-bottom: 1px;
+    }
+
+    .button .btn.finish {
+        border: 2px solid #ce2a23;
+        padding: 3px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 12px;
+    }
+
+    footer {
+        margin-top: -20px;
+    }
+    .SuperPaint .main-col .canvasArea canvas{
+    height: 330px;
+        width: 460px;
+}
+}
+
+@media (max-width:767.9px){
+    .alert{
+        display: block;
+        padding: 10px;
+    }
+    .alert h3{
+        font-size: 18px;
+        text-align: center;
+        color: #ce2a23;
+        max-width: 360px;
+        margin: auto;
+    }
+    
+    .SuperPaint .main-col {
+        width: calc(100% - 120px);
+        padding: 0 15px;
+    }
+
+    .SuperPaint .left-col,
+    .SuperPaint .right-col {
+        width: 60px;
+        padding-top: 30px;
+    }
+
+    .SuperPaint .main-col .logo img {
+        padding: 10px;
+    }
+
+    .SuperPaint .right-col .doll2 img {
+        margin-left: -30px;
+        width: 100px;
+    }
+
+    .SuperPaint .left-col .doll1 img {
+        width: 62px;
+        padding-top: 15px;
+    }
+    
+    .SuperPaint .main-col .logo img{
+        max-width: 100%;
+    }
+    .SuperPaint .button,
+    .SuperPaint .colorArea,
+    .SuperPaint .tools,
+    .SuperPaint .canvasArea{
+        display: none;
+    }
+    footer {
+        margin-top: 0;
+    }
+    footer .images img:nth-child(2) {
+        padding-top: 1px;
+    }
+    
+}
