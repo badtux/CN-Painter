@@ -310,10 +310,6 @@ body {
     animation: ani1 .5s ease;
 }
 
-.modal-header, .modal-body, .modal-footer {
-    background-color: #f1b13b !important; 
-}
-
 .super-secondary{
     background-color: #1b2541 !important; 
 }
@@ -322,8 +318,11 @@ body {
     background-color: #3aa94d !important; 
 }
 
-.modal-header, .modal-body, .modal-footer {
-    //background-color: #f1b13b !important; 
+.modal-body h3, h1 {
+    color: #29629d !important;
+}
+
+.modal-content {
     background-image: url('assets/images/modal_bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;

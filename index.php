@@ -140,32 +140,40 @@
     <div class="modal supermodal fade" id="modalSubmissionForm" tabindex="-1" role="dialog" aria-labelledby="modalSubmission" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+            <form class="needs-validation" novalidate>
+            <div class="modal-header border-0">
+            </div>
             <div class="modal-body">
-                <h3 class="modal-title text-center" id="exampleModalLabel">Please fill in your detail and submit</h3>
-                <form class="pt-1">
-                  <div class="form-row p-3">
-                    <div class="form-group col-md-12">
-                      <label for="childName">Child's Name</label>
-                      <input type="text" class="form-control" id="childName" placeholder="Child's Name">
+                <h3 class="modal-title text-center">Please fill in your detail and submit</h3>
+                    <div class="form-row pl-4 pr-4 pt-3">
+                        <div class="form-group col-md-6">
+                          <label for="childName">Child's Name</label>
+                          <input type="text" class="form-control" id="childName" placeholder="Child's Name" required>
+                          <div class="invalid-feedback">The little artist's name.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="childAge">Child's Age</label>
+                          <input type="text" class="form-control" id="childAge" placeholder="Child's Age" required>
+                          <div class="invalid-feedback">Enter the artist's age.</div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="parentNo">Parents Contact No</label>
+                            <input type="text" class="form-control" id="parentNo" placeholder="Parent's Contact No" required>
+                            <div class="invalid-feedback">Parent's contact number is required.</div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-12">
-                      <label for="childAge">Child's Age</label>
-                      <input type="text" class="form-control" id="childAge" placeholder="Child's Age">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="parentNo">Parents Contact No</label>
-                        <input type="text" class="form-control" id="parentNo" placeholder="Parents Contact No">
-                    </div>
-                </div>
-                <div class="form-row">
+                    
+            </div>
+            <div class="modal-footer border-0">
+                <div class="form-row pl-4 pr-4">
                     <div class="form-group col-md-12 text-right">
                         <button type="button" class="btn btn-secondary super-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary super-primary btn-lg" id="submitSuperPainting">Submit</button>
+                        <button type="submit" class="btn btn-primary super-primary btn-lg" id="submitSuperPainting">Submit</button>
                     </div>
                 </div>
-               </form>
             </div>
         </div>
+        </form>
         </div>
     </div>
 
@@ -205,6 +213,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"></script>
     <script type="text/javascript" src="assets/js/drawing.js"></script>
     <script>
