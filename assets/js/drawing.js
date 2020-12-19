@@ -385,16 +385,18 @@
 					    // Loop over them and prevent submission
 					    var validation = Array.prototype.filter.call(forms, function(form) {
 					      form.addEventListener('submit', function(event) {
-					      	event.preventDefault();
+							event.preventDefault();
 					        event.stopPropagation();
-
+					        
 					        if (form.checkValidity() === false) {
 					        	
 					        }
 					        else {
-					        	form.classList.add('was-validated');
 					        	submitArtwork();
 					        }
+
+					        form.classList.add('was-validated');
+
 					      }, false);
 					    });
 					});
