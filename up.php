@@ -11,7 +11,9 @@
 	$fileingName = date("Ymd-Gis_").$parentNo.'-'.$childName.'-'.$childAge.'.png';   
 	
 	define('UPLOAD_DIR', 'submissions/');
-	define('SHARE_URL', 'https://laugfs-super.prvw.ceynet.asia/submissions/'.$fileingName);
+	define('BASE_URL', 'https://laugfs-super.prvw.ceynet.asia/');
+
+	define('SHARE_URL', BASE_URL.'?uid='.$fileingName);
 
 	$blob = str_replace(['data:image/png;base64,',' '], ['','+'], $blob);
 	$success = file_put_contents(UPLOAD_DIR . $fileingName, base64_decode($blob));
@@ -23,7 +25,7 @@
 		'status' => (int)$success,
 		'uid' => $fileingName,
 		'share_url' => SHARE_URL,
-		'share_msg' => $childName.' just took part in LAUGFS Super Painter contest. Login to take part in the competition and win valuable gift vouchers from Promate. http://bit.ly/LaugfsSuperPainter'
+		'share_msg' => $childName.' just took part in LAUGFS Super Painter contest. Log in to take part in the competition and win valuable gift vouchers from ProMate. Click on the below picture and "Try Now"'
 	]);
 
 	

@@ -1,5 +1,15 @@
 <?php 
-    $ogPage = isset($_GET['uid']);
+    define('UPLOAD_DIR', 'submissions/');
+    define('BASE_URL', 'https://laugfs-super.prvw.ceynet.asia/');
+
+    $ogPage = (isset($_GET['uid']) && is_file('submissions/'.strip_tags($_GET['uid'])));
+
+    if($ogPage){
+        $superPaintingPath = UPLOAD_DIR.$_GET['uid'];
+        $superPage = BASE_URL.'?uid='.strip_tags($_GET['uid']);
+        $tags = explode('-', strip_tags($_GET['uid']));
+        $childName = $tags['2'];
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,11 +26,12 @@
 
 <?php 
     if($ogPage){ ?>
-    <meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
-    <meta property="og:type"               content="article" />
-    <meta property="og:title"              content="When Great Minds Don’t Think Alike" />
-    <meta property="og:description"        content="How much does culture influence creative thinking?" />
-    <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+        <meta property="fb:app_id"          content="1294688194235622" /> 
+        <meta property="og:type"            content="article" /> 
+        <meta property="og:url"             content="<?php echo $superPage; ?>" /> 
+        <meta property="og:title"           content="<?php echo $childName.' just took part in LAUGFS Super Painter contest.'; ?>" /> 
+        <meta property="og:image"           content="<?php echo BASE_URL.$superPaintingPath; ?>" /> 
+        <meta property="og:description"    content="LAUGFS Super Painter contest. Log in to take part in the competition and win valuable gift vouchers from ProMate." />
 <?php 
     } ?>
 
@@ -70,12 +81,20 @@
                         <img src="assets/images/logo.png" alt="">
                     </div>
                     <div class="canvasArea" id="canvasarea">
+                        <?php if($ogPage){ ?>
+                        <img src="<?php echo $superPaintingPath; ?>">
+                        <?php } else { ?>
                         <canvas id="myCanvas" width="640" height="519" style="border:5px solid #000000;">
                             Canvas not supporeted in IE 8 and earlier versions srry
                         </canvas>
+                        <?php } ?>
                     </div>
                     <div class="button">
-                        <button class="btn finish" id="btn-finish">Finish</button>
+                        <?php if($ogPage){ ?>
+                            <button class="btn trynow" id="btn-trynow">Try Now</button>
+                    <?php } else { ?>
+                            <button class="btn finish" id="btn-finish">Finish</button>
+                    <?php } ?>
                     </div>
                     <div class="alert m-4 text-center">
                         <h2>Please use a larger screen.</h2>

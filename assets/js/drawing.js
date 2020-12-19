@@ -1,40 +1,33 @@
-	//Create canvas
-	var canvas = document.getElementById('myCanvas');
+	if ( $( "#myCanvas" ).length ) {
+		//Create canvas
+		var canvas = document.getElementById('myCanvas');
+		var parent = document.getElementById("canvasarea");
+		canvas.width = parent.offsetWidth;
+		canvas.height = parent.offsetHeight;
 
-	//canvas.width = 903;
-	//canvas.height = 657;
-	var parent = document.getElementById("canvasarea");
-	canvas.width = parent.offsetWidth;
-	canvas.height = parent.offsetHeight;
+		var background = new Image();
+		background.src = "assets/images/paint_white.png";
+		//background.src = "assets/images/paint.png";
 
-	var background = new Image();
-	//background.crossOrigin = "anonymous";
-	background.src = "assets/images/paint_white.png";
-	//background.src = "assets/images/paint.png";
+		var ctx = canvas.getContext('2d');
 
-	var ctx = canvas.getContext('2d');
+		background.onload = function(){
+		    ctx.drawImage(background,0,0,canvas.width,canvas.height);
+		}
 
-	// Make sure the image is loaded first otherwise nothing will draw.
-	background.onload = function(){
-	    ctx.drawImage(background,0,0,canvas.width,canvas.height);
+		lines();
+		//var removeRectangleInLine = 0;
 	}
 
-	//Set background
-	//ctx.fillStyle = "white";
-	//ctx.fillRect(0, 0, 700, 500);
-
-	//Lines is default
-	lines();
-	var removeRectangleInLine = 0;
 	function lines() {
 		//painting = false;
 		//Remove event listeners so line won't draw rectangle
-		if (removeRectangleInLine == 1) {
+		/*if (removeRectangleInLine == 1) {
 			canvas.removeEventListener('mousedown', rectMouseDown);
 			canvas.removeEventListener('mouseup', rectMouseUp);
 			canvas.removeEventListener('mousemove', rectMouseMove);
 			canvas.removeEventListener('mouseout', rectMouseout);
-		};
+		};*/
 
 		//Initialize mouse coordinates to 0,0
 		var mouse = { x: 0, y: 0};
@@ -191,7 +184,7 @@
 	};
 
 	//Rectangle shape
-	function rectangle() {
+	/*function rectangle() {
 		removeRectangleInLine = 1;
 
 		canvas.removeEventListener('mousedown', linesMousedown, false);
@@ -300,7 +293,7 @@
 		canvas.addEventListener('mouseup', rectMouseUp, false);
 		canvas.addEventListener('mousemove', rectMouseMove, false);
 		canvas.addEventListener('mouseout', rectMouseout, false);
-	};
+	}; */
 
 	function thankYouShareNow(){
 		console.log('11');
@@ -371,25 +364,32 @@
 			});
 		});
 
-		var button = document.getElementById('btn-finish');
-		button.addEventListener('click', function (e) {
-			
-			addOutLine();
+		if ( $( "#btn-trynow" ).length ) {
+			var button = document.getElementById('btn-trynow');
+			button.addEventListener('click', function (e) {
+				window.location.href = "/";
+			});
+		}
 
-			$('#modalSubmissionForm').on('shown.bs.modal', function () {
-				$('#childName').trigger('focus');
-				var button = document.getElementById('submitSuperPainting');
-				button.addEventListener('click', function (e) {
-					submitArtwork();
+		if ( $( "#btn-finish" ).length ) {
+		var button = document.getElementById('btn-finish');
+			button.addEventListener('click', function (e) {
+				addOutLine();
+				$('#modalSubmissionForm').on('shown.bs.modal', function () {
+					$('#childName').trigger('focus');
+					var button = document.getElementById('submitSuperPainting');
+					button.addEventListener('click', function (e) {
+						submitArtwork();
+					});
+				});
+
+				$('#modalSubmissionForm').modal('show');
+				console.log('4');
+
+				$('#modalSubmissionForm').on('hidden.bs.modal', function (e) {
+					console.log('5');
+					thankYouShareNow();
 				});
 			});
-
-			$('#modalSubmissionForm').modal('show');
-			console.log('4');
-
-			$('#modalSubmissionForm').on('hidden.bs.modal', function (e) {
-				console.log('5');
-				thankYouShareNow();
-			});
-		});
+		}
 	});
