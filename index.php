@@ -16,7 +16,8 @@
 
 <head>
    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width,user-scalable=no">
     <title>Super Painter</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -140,7 +141,7 @@
     <div class="modal supermodal fade" id="modalSubmissionForm" tabindex="-1" role="dialog" aria-labelledby="modalSubmission" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" name="submission" data-toggle="validator" novalidate="true">
             <div class="modal-header border-0">
             </div>
             <div class="modal-body">

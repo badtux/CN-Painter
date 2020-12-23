@@ -11,7 +11,7 @@
 	foreach ($files as $key => $value) { 
 		$artist = explode('-', $value); ?>
 		<div style="float: left; border: 1px solid;">
-			<a href="<?php echo BASE_URL.'?uid='.substr($value,0,-4); ?>">
+			<a href="<?php echo BASE_URL.'?uid='.$value; ?>">
 				<span>
 					<img width="250" src="<?php echo $value; ?>" />
 				</span>

@@ -4,8 +4,8 @@
 	$parentNo = $_POST['parentNo'];
 	$blob = $_POST['painting'];
 
-	$childName = preg_replace('/[\W_]+/m', '-', $childName);
-	$childAge = preg_replace('/[\W_]+/m', '-', $childAge);
+	$childName = preg_replace('/[\W_]+/m', '', $childName);
+	$childAge = preg_replace('/[\W_]+/m', '', $childAge);
 	$parentNo = preg_replace('/[^0-9]/', '', $parentNo);
 
 	$fileingName = date("Ymd-Gis_").$parentNo.'-'.$childName.'-'.$childAge.'.png';   

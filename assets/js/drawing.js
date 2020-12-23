@@ -15,8 +15,21 @@
 		    ctx.drawImage(background,0,0,canvas.width,canvas.height);
 		}
 
+
+		canvas.addEventListener('touchstart', touchHandler, false);
+		canvas.addEventListener('touchmove', touchHandler, false);
+		canvas.addEventListener('touchend', touchHandler, false);
+		// Prevent scrolling when touching the canvas
+
 		lines();
 		//var removeRectangleInLine = 0;
+	}
+
+	function touchHandler(event) {
+		event.preventDefault();
+		if(typeof event.touches[0] !== 'undefined'){
+			console.log('x: ' + event.touches[0].pageX + ', y: ' + event.touches[0].pageY);
+		}
 	}
 
 	function lines() {
@@ -46,6 +59,8 @@
 		linesMousemove = function(e){
 			mouse.x = e.pageX - this.offsetLeft;
 			mouse.y = e.pageY - this.offsetTop;
+
+			console.log('mouse move '+mouse.x+' - '+mouse.y);
 		};
 
 		//User clicks down on canvas to trigger paint
@@ -53,16 +68,20 @@
 			ctx.beginPath();
 			ctx.moveTo(mouse.x, mouse.y);
 			canvas.addEventListener('mousemove', paint, false);
+
+			console.log('mouse down - painting');
 		};
 
 		//When mouse lifts up, line stops painting
 		linesMouseup = function(){
 			canvas.removeEventListener('mousemove', paint, false);
+			console.log('mouse up - rem');
 		};
 
 		//When mouse leaves canvas, line stops painting
 		linesMouseout = function() {
 			canvas.removeEventListener('mousemove', paint, false);
+			console.log('mouse out -rem');
 		};
 
 		//Event listeners that will trigger the paint functions when
@@ -216,13 +235,17 @@
 		fd.append('childAge', childAge);
 		fd.append('painting', imgBase64);
 
-		$.ajax({
+		var promise = $.ajax({
 		    type: 'POST',
 		    url: 'up.php',
 		    data: fd,
 		    dataType: 'json',
 		    processData: false,
-		    contentType: false
+		    contentType: false,
+		    timeout: 10000,
+		    beforeSend: function(xhr) {
+		    	$("#submitSuperPainting").attr("disabled", true);
+		    }
 		}).done(function(data) {
 		
 			console.log(data);
@@ -240,6 +263,14 @@
 			});
 
 			console.log('uploaded.');
+		});
+
+		promise.fail(function(jqXHR, textStatus) {
+			console.log(textStatus);
+		    if(textStatus==='timeout') {
+		    	console.log(textStatus);
+		        $('#submitSuperPainting').text('Try Again').removeAttr('disabled', 'disabled');
+		    }
 		});
 	}
 
@@ -267,8 +298,7 @@
 					$('#childName').trigger('focus');
 					var button = document.getElementById('submitSuperPainting');
 					button.addEventListener('click', function (e) {
-
-					    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+						// Fetch all the forms we want to apply custom Bootstrap validation styles to
 					    var forms = document.getElementsByClassName('needs-validation');
 					    // Loop over them and prevent submission
 					    var validation = Array.prototype.filter.call(forms, function(form) {
